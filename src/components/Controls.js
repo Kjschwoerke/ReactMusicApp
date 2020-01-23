@@ -3,9 +3,15 @@ import Slider from '@material-ui/core/Slider';
 import Switch from '@material-ui/core/Switch';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
 
+class Controls extends React.Component {
 
-const Controls = () => {
+    render(){
+
+//const Controls = () => {
     return(
         <div className = 'allControl'>
         <h2>You have Successfully Logged In!</h2>
@@ -15,14 +21,25 @@ const Controls = () => {
             <section className='controls'>
                 <h3>Online Mode</h3>
                 <p>Is this application connected to the internet?</p>
-                <Switch />
+                <FormControlLabel
+                value="Online"
+                control={<Switch color="primary" />}
+                label="Online"
+                labelPlacement="end"
+                />
             </section>
 
             {/* adjust the volume of the application */}
             <section className='controls'>
                 <h3>Master Volume</h3>
                 <p>Over-rides all other volume settings in this application.</p>
-                <Slider />
+                <Slider 
+                defaultValue={30}
+                valueLabelDisplay="auto"
+                step={10}
+                marks
+                min={10}
+                max={110}/>
             </section>
 
             {/* adjust the quality of the sound */}
@@ -33,16 +50,16 @@ const Controls = () => {
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value={1}>Low</MenuItem>
+                    <MenuItem value={2}>Medium</MenuItem>
+                    <MenuItem value={3}>High</MenuItem>
                 </Select>
             </section>
             
             </div>
         </div>
     )
-}
-
+    }
+  }
 
 export default Controls;
