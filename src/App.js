@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import NavBar from './components/NavBar'
+import AppBar from './components/AppBar'
 import Button from '@material-ui/core/Button'
-import Dashboard from './components/Dashboard'
+import LogIn from './components/LogIn'
 import Controls from './components/Controls'
 import './App.css';
 
@@ -25,10 +25,10 @@ class App extends Component {
     if (this.state.loggedIn) {
       return (
       <>
-      <NavBar />
+      <AppBar />
       <br/>
       <div className = 'dashboardContainer'>
-      <Dashboard />
+      <LogIn />
       <Button variant="contained" color="primary" onClick = {this.logged}>
                 Log-In
       </Button>
@@ -39,7 +39,7 @@ class App extends Component {
 
       return (
         <>
-        <NavBar />
+        <AppBar />
         <br/>
         <Controls />
         </>

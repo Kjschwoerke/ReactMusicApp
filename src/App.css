@@ -7,8 +7,8 @@
 
 .App {
   text-align: center;
-
 }
+
 
 .dashboardContainer button{
   display: flex;
@@ -16,6 +16,8 @@
   width: 50%;
   max-width: 444px;
 }
+
+/* CSS for LogIn.js*/
 .dashContainer {
   display: flex;
   flex-direction: row;
@@ -29,19 +31,19 @@
   margin: 0 auto;
   
 }
+
 .input{
   margin: 1em;
 }
 
-.allControl {
-  padding: 0em 2em;
-}
-
-.controlsContainer {
+/* CSS for the Controls.js and imported Components */
+.controlPanel {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 1em;
+  max-width: 75vw;
+  margin: 3em auto;
+
 }
 
 .controls {
