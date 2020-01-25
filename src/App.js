@@ -22,6 +22,8 @@ class App extends Component {
     }
 
   render() {
+
+    //conditional return based on logged in status
     if (this.state.loggedIn) {
       return (
       <>
