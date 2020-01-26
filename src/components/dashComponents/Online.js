@@ -56,7 +56,7 @@ render() {
   
  if (this.state.online === true){
   return (
-    <Card className="card">
+    <Card className="controls">
       <CardContent>
         <Typography className="title" color="textSecondary" gutterBottom>
           Online Status
@@ -79,7 +79,7 @@ render() {
  } else {
 
   return (
-    <Card className="card">
+    <Card className="controls">
       <CardContent>
         <Typography className="title" color="textSecondary" gutterBottom>
           Online Status
