@@ -10,7 +10,7 @@ class App extends Component {
     constructor(props) {
       super(props)
       this.state = {
-        loggedIn: true
+        loggedIn: true,
       }
     }
 
@@ -18,7 +18,6 @@ class App extends Component {
         this.setState({
           loggedIn: false
         })
-      console.log(this.state.loggedIn)
     }
 
   render() {
@@ -32,7 +31,7 @@ class App extends Component {
       <div className = 'dashboardContainer'>
       <LogIn />
       <Button variant="contained" color="primary" onClick = {this.logged}>
-                Log-In
+        Log-In
       </Button>
       </div>
       </>)
