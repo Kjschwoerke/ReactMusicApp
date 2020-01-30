@@ -21,27 +21,33 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ControlledOpenSelect() {
+let qualityValue = ''
+export const QualityValue = {value: qualityValue,}
+
+export default function ControlledOpenSelect(props) {
   const classes = useStyles();
   const [quality, setQuality] = React.useState('');
   const [open, setOpen] = React.useState(false);
 
   const handleChange = event => {
     setQuality(event.target.value);
-    console.log(`handleChange: ${quality}`)
+    props.onQualChange(event.target.value)
+    qualityValue = quality
+    //console.log('hello')
   };
 
   const handleClose = () => {
     setOpen(false);
-    console.log(`handleClose: ${quality}`)
+    //console.log(`handleClose: ${quality}`)
+    //QualityValue.setState({qual: quality})
   };
 
   const handleOpen = () => {
     setOpen(true);
-    console.log(`handleOpen: ${quality}`)
+    //console.log(`handleOpen: ${quality}`)
   };
   
-  if (quality === 1){
+  if (qualityValue === '1'){
     return (
         <Card className='controls'>
             <CardContent>
@@ -60,15 +66,15 @@ export default function ControlledOpenSelect() {
               open={open}
               onClose={handleClose}
               onOpen={handleOpen}
-              value={quality}
+              value={quality}l
               onChange={handleChange}
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              <MenuItem value={1}>One</MenuItem>
-              <MenuItem value={2}>Two</MenuItem>
-              <MenuItem value={3}>Three</MenuItem>
+              <MenuItem value={'1'}>One</MenuItem>
+              <MenuItem value={'2'}>Two</MenuItem>
+              <MenuItem value={'3'}>Three</MenuItem>
             </Select>
           </FormControl>
           </CardActions>

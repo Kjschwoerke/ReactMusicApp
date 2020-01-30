@@ -1,22 +1,19 @@
-//import React from "react";
 import Online from "./dashComponents/Online";
-//import Volume from "./dashComponents/Volume";
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
-//Card imports
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Quality from "./dashComponents/Quality";
-
+import { QualityValue } from './dashComponents/Quality'
 
 class Controls extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
           online: false,
-          volume: '30',
+          volume: '',
           quality: '',
           alertArr: [],
         }
@@ -42,14 +39,17 @@ changeOnline = (isOnline) => {
     this.setState({
         alertArr: alert
     })
+    //console.log(QualityValue.value + " @controls.js")
   }
 }
 
 //Function to change the volume and update system notification
 handleChange = (event, newValue) => {
   this.setState({
-    volume: newValue
+    volume: newValue,
   })
+  
+
     if (newValue > 80 || newValue === 80){
       //console.log('this is the volume:  '+ newValue)
         let alert = [...this.state.alertArr]
@@ -61,17 +61,26 @@ handleChange = (event, newValue) => {
   };
   
 //Function to update the sound quality and update the system notification
-    changeQuality = (isQuality) => {
-        this.setState({
-            
-        })
-    }
+
+    changeQuality = (quality) => {
+       console.log(quality)
+       if (quality === 1){
+        //console.log('this is the volume:  '+ newValue)
+          let alert = [...this.state.alertArr]
+          alert.push('The quality is degreaded')
+          this.setState({
+            alertArr: alert
+          })
+      }
+     }
 
     render() {
         return(
             <div className = 'controlPanel'>
 {/* Component to modify online status. */}
                 <Online logged={this.changeOnline.bind(this, this.state.online)}/>
+
+
 {/* Component to modify volume status. */}
             <Card className='controls'>
               <CardContent>
@@ -93,8 +102,10 @@ handleChange = (event, newValue) => {
               </CardActions>
             </CardContent>
         </Card>
+
+        
 {/* Component to modify sound quality status. */}
-                <Quality qual={this.changeQuality.bind(this,this.state.quality)}/>
+          <Quality onQualChange={this.changeQuality}/>
 {/* System status section to update the system. */}
                 <section>
                     <h3>System Notifications:</h3>
