@@ -26,7 +26,7 @@ changeOnline = (isOnline) => {
        online: false,
     })
     let alert = [...this.state.alertArr]
-    alert.push("You are in offline mode.  Some features may be unavailable.")
+    alert.push("Your application is offline. You won't be able to share or stream music to other devices.")
     this.setState({
         alertArr: alert
     })
@@ -53,7 +53,7 @@ handleChange = (event, newValue) => {
     if (newValue > 80 || newValue === 80){
       //console.log('this is the volume:  '+ newValue)
         let alert = [...this.state.alertArr]
-        alert.push('listening at volume 80 or higher may result in hearing damage.')
+        alert.push('Listening to music at a high volume could cause long-term hearing loss.')
         this.setState({
           alertArr: alert
         })
@@ -67,7 +67,7 @@ handleChange = (event, newValue) => {
        if (quality === 1){
         //console.log('this is the volume:  '+ newValue)
           let alert = [...this.state.alertArr]
-          alert.push('The quality is degreaded')
+          alert.push('Music quality is degraded. Increase quality if your connection allows it.')
           this.setState({
             alertArr: alert
           })
