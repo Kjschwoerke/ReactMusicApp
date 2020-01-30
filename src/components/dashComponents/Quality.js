@@ -21,9 +21,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-let qualityValue = ''
-export const QualityValue = {value: qualityValue,}
-
 export default function ControlledOpenSelect(props) {
   const classes = useStyles();
   const [quality, setQuality] = React.useState('');
@@ -32,57 +29,18 @@ export default function ControlledOpenSelect(props) {
   const handleChange = event => {
     setQuality(event.target.value);
     props.onQualChange(event.target.value)
-    qualityValue = quality
-    //console.log('hello')
   };
 
   const handleClose = () => {
     setOpen(false);
-    //console.log(`handleClose: ${quality}`)
-    //QualityValue.setState({qual: quality})
   };
 
   const handleOpen = () => {
     setOpen(true);
-    //console.log(`handleOpen: ${quality}`)
   };
+
   
-  if (qualityValue === '1'){
-    return (
-        <Card className='controls'>
-            <CardContent>
-          <h3 className={classes.button} onClick={handleOpen}>
-            Quality
-          </h3>
-          <Typography id="discrete-slider" gutterBottom>
-              This will adjust the audio quality.
-          </Typography>
-          <CardActions>
-          <FormControl className={classes.formControl}>
-            <InputLabel id="demo-controlled-open-select-label">Quality</InputLabel>
-            <Select
-              labelId="demo-controlled-open-select-label"
-              id="demo-controlled-open-select"
-              open={open}
-              onClose={handleClose}
-              onOpen={handleOpen}
-              value={quality}l
-              onChange={handleChange}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={'1'}>One</MenuItem>
-              <MenuItem value={'2'}>Two</MenuItem>
-              <MenuItem value={'3'}>Three</MenuItem>
-            </Select>
-          </FormControl>
-          </CardActions>
-          <p>Music quality is degraded. Increase quality if your connection allows it.</p>
-          </CardContent>
-        </Card>
-      );
-  }else{
+  
     return (
             <Card className='controls'>
                 <CardContent>
@@ -117,5 +75,3 @@ export default function ControlledOpenSelect(props) {
             </Card>
       );
   }
-  
-}

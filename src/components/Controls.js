@@ -6,7 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Quality from "./dashComponents/Quality";
-import { QualityValue } from './dashComponents/Quality'
+
 
 class Controls extends React.Component {
     constructor(props) {
