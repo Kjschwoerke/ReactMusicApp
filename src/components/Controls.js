@@ -1,11 +1,11 @@
-import Online from "./dashComponents/Online";
+import Online from "./controlComponents/Online";
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Quality from "./dashComponents/Quality";
+import Quality from "./controlComponents/Quality";
 
 
 class Controls extends React.Component {
@@ -109,7 +109,9 @@ handleChange = (event, newValue) => {
 {/* System status section to update the system. */}
                 <section>
                     <h3>System Notifications:</h3>
-                    <p>{this.state.alertArr}</p>
+                    {this.state.alertArr.map((item, index) => (
+                      <p key={index}>{item}</p>
+                    ))}
                 </section>
             </div>
         )
